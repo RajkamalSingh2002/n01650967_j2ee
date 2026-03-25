@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student Records</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background-color: #4CAF50; color: white; }
+        a { display: inline-block; margin-bottom: 15px; color: #4CAF50; }
+    </style>
+</head>
+<body>
+<h1>Student Records</h1>
+<a href="/add-student">+ Add New Student</a>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th><th>Name</th><th>Age</th><th>Gender</th>
+        <th>Email</th><th>City</th><th>Date of Birth</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.age}"></td>
+        <td th:text="${student.gender}"></td>
+        <td th:text="${student.email}"></td>
+        <td th:text="${student.city}"></td>
+        <td th:text="${student.dateOfBirth}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

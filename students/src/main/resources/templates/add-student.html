@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Student</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        label { display: block; margin-top: 10px; font-weight: bold; }
+        input { padding: 8px; width: 300px; margin-top: 4px; }
+        button { margin-top: 20px; padding: 10px 20px; background: #4CAF50;
+            color: white; border: none; cursor: pointer; }
+        a { display: inline-block; margin-top: 15px; color: #4CAF50; }
+    </style>
+</head>
+<body>
+<h1>Add New Student</h1>
+<form th:action="@{/add-student}" th:object="${student}" method="post">
+    <label>ID:</label>
+    <input type="number" th:field="*{id}" required />
+
+    <label>Name:</label>
+    <input type="text" th:field="*{name}" required />
+
+    <label>Age:</label>
+    <input type="number" th:field="*{age}" required />
+
+    <label>Gender:</label>
+    <input type="text" th:field="*{gender}" required />
+
+    <label>Email:</label>
+    <input type="email" th:field="*{email}" required />
+
+    <label>City:</label>
+    <input type="text" th:field="*{city}" required />
+
+    <label>Date of Birth:</label>
+    <input type="date" th:field="*{dateOfBirth}" required />
+
+    <br/>
+    <button type="submit">Add Student</button>
+</form>
+<a href="/students">← Back to All Students</a>
+</body>
+</html>
