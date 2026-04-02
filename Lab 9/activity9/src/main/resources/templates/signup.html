@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Signup</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .box { width: 350px; margin: auto; }
+        input { margin: 8px 0; padding: 8px; width: 100%; }
+        button { padding: 8px 16px; }
+        .error { color: red; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>User Sign Up</h2>
+
+        <form th:action="@{/signup}" th:object="${signupRequest}" method="post">
+            <input type="text" th:field="*{firstName}" placeholder="First Name" required />
+            <input type="text" th:field="*{lastName}" placeholder="Last Name" required />
+            <input type="email" th:field="*{email}" placeholder="Email" required />
+            <input type="text" th:field="*{username}" placeholder="Username" required />
+            <input type="password" th:field="*{password}" placeholder="Password" required />
+            <input type="date" th:field="*{dob}" />
+
+            <button type="submit">Signup</button>
+        </form>
+
+        <p th:if="${error}" th:text="${error}" class="error"></p>
+        <p><a th:href="@{/}">Back to Login</a></p>
+    </div>
+</body>
+</html>
